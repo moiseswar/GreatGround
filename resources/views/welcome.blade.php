@@ -5,8 +5,18 @@
 <head>
     <title> GreatGround </title>
     <!-- <link href="Login.css" rel="stylesheet" type="text/css"> -->
+    <meta name="theme-color" content="#b1f264" />
+    <!--Optimización para movil-->
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <!--Meta etiquetas para iOS-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="apple-touch-icon" href="img/favicon.png" />
+    <link rel="apple-touch-startup-image" href="img/favicon.png" />
+    <!--Meta etiquetas para iOS-->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="{!! asset('images/favicon120.png') !!}" />
@@ -24,13 +34,13 @@
     <nav class="white" role="navigation">
         <div class="nav-wrapper">
             <img src="{!! asset('images/favicon120.png') !!}" alt="GreatGround" style="width: 60px; height: 60px; margin-left: 5px;" />
-            <a id="logo-container" href="#" class="brand-logo black-text">GreatGround</a>
+            <a id="logo-container" href="#" class="brand-logo blue-text">GreatGround</a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="#" class="black-text">Inicio</a></li>
-                <li><a href="#" class="black-text">Proyectos</a></li>
-                <li><a href="#" class="black-text">¿Quiénes somos?</a></li>
-                <li><a href="#" class="black-text">Registrarse</a></li>
-                <li><a href="#" class="black-text">Iniciar Sesión</a></li>
+                <li><a href="#" class="blue-text">Inicio</a></li>
+                <li><a href="#" class="blue-text">Proyectos</a></li>
+                <li><a href="#" class="blue-text">¿Quiénes somos?</a></li>
+                <li><a href="#" class="blue-text">Registrarse</a></li>
+                <li><a href="#" class="blue-text">Iniciar Sesión</a></li>
             </ul>
 
             <ul id="nav-mobile" class="sidenav">
@@ -189,7 +199,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container center">
-                Made by <a class="brown-text text-lighten-3" href="#">Yo mero JAJA</a>
+                Made by <a class="white-text" href="#">Yo mero JAJA</a>
             </div>
         </div>
     </footer>
