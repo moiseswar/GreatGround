@@ -72,7 +72,7 @@
 
             </div>
         </div>
-        <div class="parallax"><img src="{!! asset('images/carrusel/1.jpg') !!}"></div>
+        <div class="parallax"><img src="{!! asset('images/background/1.jpg') !!}"></div>
     </div>
 
 
@@ -128,7 +128,7 @@
                 </div>
             </div>
         </div>
-        <div class="parallax"><img src="{!! asset('images/carrusel/2.jpg') !!}"></div>
+        <div class="parallax"><img src="{!! asset('images/background/2.jpg') !!}"></div>
     </div>
 
     <div class="container">
@@ -162,7 +162,7 @@
                 </div>
             </div>
         </div>
-        <div class="parallax"><img src="{!! asset('images/carrusel/3.jpg') !!}"></div>
+        <div class="parallax"><img src="{!! asset('images/background/3.jpg') !!}"></div>
     </div>
 
     <footer class="page-footer green">
