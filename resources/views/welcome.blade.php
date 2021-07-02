@@ -39,8 +39,8 @@
                 <li><a href="#" class="blue-text">Inicio</a></li>
                 <li><a href="#" class="blue-text">Proyectos</a></li>
                 <li><a href="#" class="blue-text">¿Quiénes somos?</a></li>
-                <li><a href="#" class="blue-text">Registrarse</a></li>
-                <li><a href="#" class="blue-text">Iniciar Sesión</a></li>
+                <li><a href="{{ route('register') }}" class="blue-text">Registrarse</a></li>
+                <li><a href="{{ route('login') }}" class="blue-text">Iniciar Sesión</a></li>
             </ul>
 
             <ul id="nav-mobile" class="sidenav">
