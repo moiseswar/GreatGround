@@ -47,8 +47,8 @@
                 <li><a href="#" class="black-text">Inicio</a></li>
                 <li><a href="#" class="black-text">Proyectos</a></li>
                 <li><a href="#" class="black-text">¿Quiénes somos?</a></li>
-                <li><a href="#" class="black-text">Registrarse</a></li>
-                <li><a href="#" class="black-text">Iniciar Sesión</a></li>
+                <li><a href="{{ route('register') }}" class="black-text">Registrarse</a></li>
+                <li><a href="{{ route('login') }}" class="black-text">Iniciar Sesión</a></li>
             </ul>
             <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i
                     class="material-icons black-text">menu</i></a>
@@ -65,7 +65,7 @@
                     </h5>
                 </div>
                 <div class="row center">
-                    <a href="#" id="download-button"
+                    <a href="{{ route('login') }}" id="download-button"
                         class="btn-large waves-effect waves-light green">Registrate</a>
                 </div>
                 <br><br>
