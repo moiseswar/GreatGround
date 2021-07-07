@@ -83,7 +83,7 @@
             <div class="row">
                 <div class="col s12 m4">
                     <div class="icon-block">
-                        <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                        <h2 class="center green-text"><i class="medium material-icons">flash_on</i></h2>
                         <h5 class="center">Lorem Ipsum</h5>
 
                         <p class="light" style="text-align: justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -94,7 +94,7 @@
 
                 <div class="col s12 m4">
                     <div class="icon-block">
-                        <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+                        <h2 class="center green-text"><i class="medium material-icons">group</i></h2>
                         <h5 class="center">Lorem Ipsum</h5>
 
                         <p class="light" style="text-align: justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -105,7 +105,7 @@
 
                 <div class="col s12 m4">
                     <div class="icon-block">
-                        <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+                        <h2 class="center green-text"><i class="medium material-icons">settings</i></h2>
                         <h5 class="center">Lorem Ipsum</h5>
 
                         <p class="light" style="text-align: justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
