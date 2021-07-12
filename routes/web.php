@@ -35,3 +35,5 @@ Route::post('/semillas', 'controllarSemillas@create')->name('semillas.create');
 Route::post('/semillas/{id}', 'controllarSemillas@destroy')->name('semillas.destroy');
 Route::post('/semillas/cambiar/{id}', 'controllarSemillas@show')->name('semillas.show');
 Route::post('/semillas/Cambiando/{id}', 'controllarSemillas@edit')->name('semillas.edit');
+
+Route::get('/clima', 'controladorClima@index')->name('clima.index');
