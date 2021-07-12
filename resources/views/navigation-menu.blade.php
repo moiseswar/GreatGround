@@ -15,6 +15,12 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('clima.index') }}" :active="request()->routeIs('clima.index')">
+                        {{ __('Clima') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('semillas.index', Auth::user()->id ) }}" :active="request()->routeIs('semillas.index')">
+                        {{ __('Tus Semillas') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

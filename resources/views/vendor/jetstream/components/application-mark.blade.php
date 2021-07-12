@@ -1,1 +1,4 @@
-<img src="images/favicon120.png" alt="" width="59" height="35">
+<a href="{{route('dashboard')}}">
+    <img src="images/favicon120.png" alt="" width="75">
+</a>
+
