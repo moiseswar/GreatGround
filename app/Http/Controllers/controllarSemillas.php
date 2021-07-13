@@ -20,7 +20,7 @@ class controllarSemillas extends Controller
     public function index($iduser)
     {
         $getsemilla = DB::table('semillas')->where("user_id",$iduser)->get();
-        return view('semilla.climaindex',compact('getsemilla'));
+        return view('dashboard',compact('getsemilla'));
     }
 
     /**
