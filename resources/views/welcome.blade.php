@@ -88,7 +88,7 @@
             <div class="row">
                 <div class="col s12 m4">
                     <div class="icon-block">
-                        <h2 class="center brown-text"><i class="material-icons">local_florist</i></h2>
+                        <h2 class="center green-text"><i class="medium material-icons">local_florist</i></h2>
                         <h5 class="center">¿Por que?</h5>
 
                         <p class="light" style="text-align: justify;">"Vemos una sequía que se ha venido extendiendo y
@@ -102,7 +102,7 @@
 
                 <div class="col s12 m4">
                     <div class="icon-block">
-                        <h2 class="center brown-text"><i class="material-icons">wb_sunny</i></h2>
+                        <h2 class="center green-text"><i class="medium material-icons">wb_sunny</i></h2>
                         <h5 class="center">¿Qué es la agrotecnología? </h5>
 
                         <p class="light" style="text-align: justify;">La agrotecnología es la tecnología aplicada a la
@@ -114,7 +114,7 @@
 
                 <div class="col s12 m4">
                     <div class="icon-block">
-                        <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+                        <h2 class="center green-text"><i class="medium material-icons">group</i></h2>
                         <h5 class="center">¿Que Pretendemos?</h5>
 
                         <p class="light" style="text-align: justify;">Great ground es una compañía de agrotecnologia
@@ -244,6 +244,8 @@
                 <div class="col  s6">
                     <h5 class="white-text">Socios</h5>
                     <ul>
+                        <li><a class="white-text">José Cristian Martínez Lázaro</a></li>
+                        <li><a class="white-text">Jonathan Salinas Martínez</a></li>
                         <li><a class="white-text">Luis Manuel Alvarez Garcia</a></li>
                         <li><a class="white-text">Silverio San Roman Gutierrez</a></li>
                         <li><a class="white-text">Nestor Moises Hernandez Jimenenez</a></li>
