@@ -30,10 +30,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 //semillas crud
-Route::middleware(['auth:sanctum', 'verified'])->get('/semillas/{iduser}', 'controllarSemillas@index')->name('semillas.index');
-Route::middleware(['auth:sanctum', 'verified'])->post('/semillas', 'controllarSemillas@create')->name('semillas.create');
-Route::middleware(['auth:sanctum', 'verified'])->post('/semillas/{id}', 'controllarSemillas@destroy')->name('semillas.destroy');
-Route::middleware(['auth:sanctum', 'verified'])->post('/semillas/cambiar/{id}', 'controllarSemillas@show')->name('semillas.show');
-Route::middleware(['auth:sanctum', 'verified'])->post('/semillas/Cambiando/{id}', 'controllarSemillas@edit')->name('semillas.edit');
+Route::get('/semillas/{iduser}', 'controllarSemillas@index')->name('semillas.index');
+Route::post('/semillas', 'controllarSemillas@create')->name('semillas.create');
+Route::post('/semillas/{id}', 'controllarSemillas@destroy')->name('semillas.destroy');
+Route::post('/semillas/cambiar/{id}', 'controllarSemillas@show')->name('semillas.show');
+Route::post('/semillas/Cambiando/{id}', 'controllarSemillas@edit')->name('semillas.edit');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/clima', 'controladorClima@index')->name('clima.index');
+Route::get('/clima', 'controladorClima@index')->name('clima.index');
