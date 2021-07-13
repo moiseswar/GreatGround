@@ -30,22 +30,25 @@
             }
 
             function showPosition(position) {
-                var coords = "Latitud: " + position.coords.latitude +
-                    "<br>Longitud: " + position.coords.longitude;
-                document.getElementById("demo").innerHTML = coords;
-
                 fetch("https://community-open-weather-map.p.rapidapi.com/weather?lat=" + position.coords.latitude + "&lon=" +
-                        position.coords
-                        .longitude, {
+                        position.coords.longitude + "&units=metric&mode=JSON", {
                             "method": "GET",
                             "headers": {
                                 "x-rapidapi-key": "9298d3cd02msh7fcd45510b07c8fp179100jsnbc34e1aec9c5",
-                                "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
-                            }
+                                "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
+                                "Content-Type": "application/json"
+                            } 
                         })
-                    .then(response => {
-                        console.log(response);
-                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        var coords = "Latitud: " + position.coords.latitude +
+                        "<br>Longitud: " + position.coords.longitude +
+                        "<br>Ciudad: " + data.name +
+                        "<br>Temperatura: " + data.main.temp;
+                        document.getElementById("demo").innerHTML = coords;
+                        console.log(data);
+                    }
+                    )
                     .catch(err => {
                         console.error(err);
                     });
