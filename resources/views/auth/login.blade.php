@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login', Auth::user()->id) }}">
+        <form method="POST" action="{{ route('login')}}">
             @csrf
 
             <div>

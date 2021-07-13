@@ -82,7 +82,8 @@
                   <div class="row">
                     @foreach ($getsemilla as $image)
                     <div class="card ml-2 float-left" style="width: 18rem;">
-                        <img src="{{asset($image->imgname)}}" class="card-img-top" >
+                    
+                        <img src="{{asset($image->imgname)}}" class="card-img-top mt-3" >
                         <div class="card-body">
                           <h5 class="card-title">{{$image->nombre}}</h5>
                           <p class="card-text">Cantidad: {{$image->cantidad}}</p> 
