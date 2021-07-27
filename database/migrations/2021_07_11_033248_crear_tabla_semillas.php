@@ -15,7 +15,8 @@ class CrearTablaSemillas extends Migration
     {
         Schema::create('semillas', function (Blueprint $table) {
             $table->id()->increments('id');
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('nombre');
             $table->string('tipo');
             $table->integer('cantidad');
