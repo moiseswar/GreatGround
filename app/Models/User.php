@@ -62,4 +62,7 @@ class User extends Authenticatable
     public function semillas(){ 
         return $this->hasMany('App/Models/semillas');
     }
+    public function cultivos(){ 
+        return $this->hasMany('App/Models/cultivos');
+    }
 }
