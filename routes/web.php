@@ -30,7 +30,14 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 //semillas crud
-Route::get('/semillas/{iduser}', 'controllarSemillas@index')->name('semillas.index');
+Route::get('/semillas/', 'controllarSemillas@index')->name('semillas.index');
+Route::post('/semillas', 'controllarSemillas@create')->name('semillas.create');
+Route::post('/semillas/{id}', 'controllarSemillas@destroy')->name('semillas.destroy');
+Route::post('/semillas/cambiar/{id}', 'controllarSemillas@show')->name('semillas.show');
+Route::post('/semillas/Cambiando/{id}', 'controllarSemillas@edit')->name('semillas.edit');
+
+//cultivos crud
+Route::get('/cultivos', 'controladorCultivos@index')->name('cultivos.index');
 Route::post('/semillas', 'controllarSemillas@create')->name('semillas.create');
 Route::post('/semillas/{id}', 'controllarSemillas@destroy')->name('semillas.destroy');
 Route::post('/semillas/cambiar/{id}', 'controllarSemillas@show')->name('semillas.show');

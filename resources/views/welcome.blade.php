@@ -69,7 +69,7 @@
                         </h5>
                     </div>
                     <div class="row center">
-                        <a href="{{ route('login') }}" id="download-button"
+                        <a href="{{ route('register') }}" id="download-button"
                             class="btn-large waves-effect waves-light green">Registrate</a>
                     </div>
                     <br><br>

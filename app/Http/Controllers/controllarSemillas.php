@@ -17,9 +17,9 @@ class controllarSemillas extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($iduser)
+    public function index()
     {
-        $getsemilla = DB::table('semillas')->where("user_id",$iduser)->get();
+        $getsemilla = DB::table('semillas')->where("user_id",auth()->user()->id)->get();
         return view('semilla.climaindex',compact('getsemilla'));
     }
 
@@ -53,7 +53,7 @@ class controllarSemillas extends Controller
         ]);
         };
         
-        return redirect()->route('semillas.index',$request->input('txt-user'))->with('exito','guardado');
+        return redirect()->route('semillas.index')->with('exito','guardado');
     }
 
     /**
@@ -98,7 +98,7 @@ class controllarSemillas extends Controller
             "tipo" => $request -> input('txt-tipo') ,
             "updated_at" => Carbon::now(),
         ]);
-        return redirect()->route('semillas.index', $request->input('txt-userid'))->with('success','Terminado');
+        return redirect()->route('semillas.index')->with('success','Terminado');
     }
 
     /**
@@ -127,6 +127,6 @@ class controllarSemillas extends Controller
 
         semillas::where("id", $image->id)->delete();
 
-        return redirect()->route('semillas.index', $request->input('txt-userid'))->with('eliminado','Eliminado');
+        return redirect()->route('semillas.index')->with('eliminado','Eliminado');
     }
 }
