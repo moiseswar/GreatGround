@@ -3,18 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Carbon\Carbon;
+use App\Models\cultivos;
 
 class controladorCultivos extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('cultivos.index');
+        $getdata = DB::table('semillas')->where("id",$id)->first();
+        return view('cultivos.create',compact('getdata'));
     }
+
+   
 
     /**
      * Show the form for creating a new resource.
@@ -34,7 +43,37 @@ class controladorCultivos extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request-> validate([
+            
+            'txt-cantidad'=> 'required| max:txt-cantidad',
+            'txt-tiempo' => 'required',
+            
+        ]);
+        
+            DB::table('Cultivos')->insert([
+            "nombre" => $request ->input('txt-nombre'),
+            "semilla_id" => $request ->input('txt-semillaid'),
+            "user_id" => auth()->user()->id,
+            "cantidad" =>$request ->input('txt-cantidad'),
+            "tiempo" => $request ->input('txt-tiempo'),
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now()
+        ]);
+
+        $getcantidad = DB::table('semillas')
+        ->select('cantidad')
+        ->where("id",$request->input('txt-semillaid'))->first();
+        
+        $cantidadRes = $request->input('txt-cantidad');
+        $catidad1 = (int)$getcantidad->cantidad;
+        $cantidadAc = ( $catidad1 - $cantidadRes);
+        DB::table('semillas')->where('id', $request ->input('txt-semillaid'))->update([
+            "cantidad" => $cantidadAc,
+            "updated_at" => Carbon::now(),
+        ]);
+        
+        
+        return redirect()->route('cultivos.show')->with('exito','guardado');
     }
 
     /**
@@ -43,9 +82,10 @@ class controladorCultivos extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $getdata = DB::table('cultivos')->where("user_id",auth()->user()->id)->get();
+        return view('cultivos.index',compact('getdata'));
     }
 
     /**

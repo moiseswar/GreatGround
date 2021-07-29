@@ -37,8 +37,9 @@ Route::post('/semillas/cambiar/{id}', 'controllarSemillas@show')->name('semillas
 Route::post('/semillas/Cambiando/{id}', 'controllarSemillas@edit')->name('semillas.edit');
 
 //cultivos crud
-Route::get('/cultivos', 'controladorCultivos@index')->name('cultivos.index');
-Route::post('/semillas', 'controllarSemillas@create')->name('semillas.create');
+Route::post('/cultivos/{id}', 'controladorCultivos@index')->name('cultivos.create');
+Route::post('/cultivos', 'controladorCultivos@store')->name('cultivos.store');
+Route::get('/cultivos/', 'controladorCultivos@show')->name('cultivos.show');
 Route::post('/semillas/{id}', 'controllarSemillas@destroy')->name('semillas.destroy');
 Route::post('/semillas/cambiar/{id}', 'controllarSemillas@show')->name('semillas.show');
 Route::post('/semillas/Cambiando/{id}', 'controllarSemillas@edit')->name('semillas.edit');
