@@ -1,8 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
+        
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </x-slot>
@@ -17,9 +15,9 @@
                         @csrf
                         <label for="" class="control-label" >Nombre</label>
                         <input type="text" name="txt-nombre" id="" class="form-control" value={{$getsemilla->nombre}}>
-                        <label for="" class="control-label">Domicilio</label>
+                        <label for="" class="control-label">Cantidad</label>
                         <input type="number" name="txt-cantidad" id="" class="form-control" value={{$getsemilla->cantidad}}>
-                        <label for="" class="control-label">Telefono</label>
+                        <label for="" class="control-label">Tipo</label>
                         <input type="text" name="txt-tipo" id="" class="form-control" value={{$getsemilla->tipo}}>
                         <input type="number" name="txt-userid" id="" class="form-control" hidden value={{$getsemilla->user_id}}>
                         <br>

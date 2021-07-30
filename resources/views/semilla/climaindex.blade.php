@@ -75,7 +75,9 @@
                       <input type="number" hidden name="txt-user" value="{{Auth::user()->id}}">
                       <div class=" px-3 mb-6 md:mb-0">
                           <button type="submit" class="btn btn-primary">Añadir</button>
+                          
                         </div>
+                        <br>
                 </form>
                   </div>
                   <br>
@@ -92,16 +94,30 @@
                               <div class="col">
                                   <form action={{route('semillas.show',$image->id)}} method="POST">
                                       @csrf
-                                      <button type="submit" class="btn btn-primary">Cambiar</button>
+                                      <button type="submit" class="m-auto btn btn-primary">Cambiar</button>
                                   </form>
+                                  
                               </div>
                               <div class="col">
                                   <form action="{{route('semillas.destroy', $image->id)}}" method="POST">
                                       @csrf
                                       <input type="number" name="txt-userid" hidden value="{{$image->user_id}}">
-                                      <button type="submit" class="btn btn-danger">Eliminar</button>
+                                      <button type="submit" class="m-auto btn btn-danger">Eliminar</button>
                                   </form>
                               </div>
+                              
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              <form action="{{route('cultivos.create', $image->id)}}" method="POST" >
+                                @csrf
+                                <input type="number" name="txt-userid" hidden value="{{$image->user_id}}">
+                                <center>
+                                <button type="submit" class="btn btn-success m-auto">Cultivar</button>
+                                </center>
+                              </form>
+                            </div>
                           </div>
                         </div>
                     </div> 

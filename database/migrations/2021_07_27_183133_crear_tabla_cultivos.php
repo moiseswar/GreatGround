@@ -22,8 +22,11 @@ class CrearTablaCultivos extends Migration
             $table->unsignedBigInteger('semilla_id');
             $table->foreign('semilla_id')->references('id')->on('semillas')->onDelete('cascade');
 
-            $table->text('comentarios');
+            $table->string('nombre');
+            $table->integer('cantidad');
+            $table->text('comentarios')->nullable()->default('Se inicio Cultivo');
             $table->integer('tiempo');
+            $table->integer('estado')->default(1);
             $table->timestamps();
         });
     }
