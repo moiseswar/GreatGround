@@ -21,6 +21,9 @@
                     <x-jet-nav-link href="{{ route('semillas.index' ) }}" :active="request()->routeIs('semillas.index')">
                         {{ __('Tus Semillas') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('cultivos.show' ) }}" :active="request()->routeIs('cultivos.show')">
+                        {{ __('Tus Cultivos') }}
+                    </x-jet-nav-link>
                     
                 </div>
             </div>

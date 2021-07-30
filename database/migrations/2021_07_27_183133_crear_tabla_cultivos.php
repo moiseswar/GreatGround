@@ -24,8 +24,9 @@ class CrearTablaCultivos extends Migration
 
             $table->string('nombre');
             $table->integer('cantidad');
-            $table->text('comentarios')->nullable();
+            $table->text('comentarios')->nullable()->default('Se inicio Cultivo');
             $table->integer('tiempo');
+            $table->integer('estado')->default(1);
             $table->timestamps();
         });
     }

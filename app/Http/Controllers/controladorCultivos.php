@@ -76,6 +76,16 @@ class controladorCultivos extends Controller
         return redirect()->route('cultivos.show')->with('exito','guardado');
     }
 
+    public function finalizar( Request $request, $id) {
+        DB::table('cultivos')->where('id', $id)->update([
+            "estado" => $request->input('txt-estado'),
+            "updated_at" => Carbon::now(),
+        ]);
+        
+        
+        return redirect()->route('cultivos.show')->with('finalizado','guardado');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -84,7 +94,10 @@ class controladorCultivos extends Controller
      */
     public function show()
     {
-        $getdata = DB::table('cultivos')->where("user_id",auth()->user()->id)->get();
+        $getdata = DB::table('cultivos')
+        ->selectRaw('*,DATE(created_at) AS Fecha')
+        ->where("user_id",auth()->user()->id)->get();
+
         return view('cultivos.index',compact('getdata'));
     }
 
@@ -96,7 +109,25 @@ class controladorCultivos extends Controller
      */
     public function edit($id)
     {
-        //
+        $getdata=DB::table('cultivos')
+        ->selectRaw('*,DATE(created_at) AS Fecha')
+        ->where('id',$id)
+        ->first();
+        $semillaId= $getdata->semilla_id;
+        $getimage=DB::table('semillas')
+        ->select('imgname')
+        ->where('id',$semillaId)
+        ->first();
+
+        return view('cultivos.hecho', compact('getdata', 'getimage'));
+    }
+    public function updateComents(Request $request, $id)
+    {
+        DB::table('cultivos')->where('id', $id)->update([
+            "comentarios" => $request-> input('txt-hechos'),
+            "updated_at" => Carbon::now(),
+        ]);
+        return redirect()-> route('cultivos.show')->with('hecho', 'comentado');
     }
 
     /**

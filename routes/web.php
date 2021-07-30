@@ -40,8 +40,8 @@ Route::post('/semillas/Cambiando/{id}', 'controllarSemillas@edit')->name('semill
 Route::post('/cultivos/{id}', 'controladorCultivos@index')->name('cultivos.create');
 Route::post('/cultivos', 'controladorCultivos@store')->name('cultivos.store');
 Route::get('/cultivos/', 'controladorCultivos@show')->name('cultivos.show');
-Route::post('/semillas/{id}', 'controllarSemillas@destroy')->name('semillas.destroy');
-Route::post('/semillas/cambiar/{id}', 'controllarSemillas@show')->name('semillas.show');
-Route::post('/semillas/Cambiando/{id}', 'controllarSemillas@edit')->name('semillas.edit');
+Route::post('/cultivos/actualizando/{id}', 'controladorCultivos@finalizar')->name('cultivos.finalizar');
+Route::post('/cultivos/hecho/{id}', 'controladorCultivos@edit')->name('cultivos.edit');
+Route::post('/cultivos/hecho/Actualizando/{id}', 'controladorCultivos@updateComents')->name('cultivos.coment');
 
 Route::get('/clima', 'controladorClima@index')->name('clima.index');
