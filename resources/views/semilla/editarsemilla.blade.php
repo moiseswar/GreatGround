@@ -23,7 +23,7 @@
                         <br>
                         <div class="m-auto w-auto">
                             <button type="submit" class="btn btn-primary">Actualizar</button>
-                            
+                            <a href={{route('semillas.index')}} class="btn btn-danger">Cancelar</a>
                         </div>
                     </form>
                   </div>
