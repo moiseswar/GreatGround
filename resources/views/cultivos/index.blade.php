@@ -72,6 +72,48 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="continer">
+                    <div class="row">
+                        
+                        <div class="col-6">
+                            <div class="row m-auto">
+                                <h3 class="">Estado de cultivos</h3>
+                                <div class="col">
+                                    <button disabled class="btn" style="background-color: rgb(248, 232, 114);">En proceso</button>
+                                </div>
+                                <div class="col">
+                                    <button disabled="disabled" class="btn" style="background-color: rgb(121, 248, 114);">Exitoso</button>
+                                </div>
+                                <div class="col">
+                                    <button disabled="disabled" class="btn" style="background-color: rgb(242, 91, 91);">Perdido</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="row m-auto">
+                                <h3 class="">Funcionalidad</h3>
+                                <div class="col">
+                                    <label class="form-label">Finalizado Correctamente</label>
+                                    <button disabled class="btn btn-warning m-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                            class="bi bi-check-lg" viewBox="0 0 16 16">
+                                            <path
+                                                d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <label class="form-label">Finalizado Erroneamente</label>
+                                    <button disabled class="btn btn-danger" data-toggle="modal" data-target="#modaledit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                            <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                                          </svg>
+                                    </button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
                     <table id="cultivos" class="table">
                         <thead>
                           <tr>
@@ -101,6 +143,10 @@
                                     </form>
                                    {{$cultivo->comentarios}}
                                 </td>
+                                @elseif($cultivo->estado == 3)
+                                <td  style="background-color: rgb(242, 91, 91);"  class="text-center">
+                                    {{$cultivo->comentarios}}
+                                </td>
                                 @else
                                 <td  style="background-color: rgb(121, 248, 114);"  class="text-center">
                                     {{$cultivo->comentarios}}
@@ -111,7 +157,7 @@
 
 
                                 @if ($cultivo->estado == 1)
-                                <td  style="background-color: rgb(248, 114, 114);"  class="text-center">
+                                <td  style="background-color: rgb(248, 232, 114);"  class="text-center">
                                     <form action="{{route('cultivos.finalizar',$cultivo->id)}}" method="POST">
                                         @csrf
                                         <input type="number" value="2" hidden name="txt-estado">
@@ -122,15 +168,29 @@
                                                     d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z" />
                                             </svg>
                                         </button>
-                                        
+                                    </form>
+                                    <br>
+                                    <form action="{{route('cultivos.finalizar',$cultivo->id)}}" method="post" >
+                                        @csrf
+                                        <input type="number" value="3" hidden name="txt-estado">
+                                        <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#modaledit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                                <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                                              </svg>
+                                        </button>
                                     </form>
                                    
+                                </td>
+                                @elseif($cultivo->estado == 3)
+                                <td style="background-color: rgb(242, 91, 91);"  class="text-center">
+                                    
                                 </td>
                                 @else
                                 <td style="background-color: rgb(121, 248, 114);"  class="text-center">
                                     
                                 </td>
                                 @endif
+                                
                             </tr>
                             @endforeach
 
