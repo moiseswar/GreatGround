@@ -37,9 +37,7 @@
                         @endif
                     </div>
 
-                    <div class="col">
-                            <img src="{{asset($getimage->imgname)}}" class="img-thumbnail m-auto mt-5" alt="..." >
-                    </div>
+                    
                     <div class="col">
                       <form action="{{route('cultivos.coment', $getdata->id)}}" method="post">
                         @csrf
