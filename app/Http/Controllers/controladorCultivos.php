@@ -113,13 +113,9 @@ class controladorCultivos extends Controller
         ->selectRaw('*,DATE(created_at) AS Fecha')
         ->where('id',$id)
         ->first();
-        $semillaId= $getdata->semilla_id;
-        $getimage=DB::table('semillas')
-        ->select('imgname')
-        ->where('id',$semillaId)
-        ->first();
-
-        return view('cultivos.hecho', compact('getdata', 'getimage'));
+        
+        
+        return view('cultivos.hecho', compact('getdata'));
     }
     public function updateComents(Request $request, $id)
     {

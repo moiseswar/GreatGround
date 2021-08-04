@@ -17,10 +17,8 @@ class CrearTablaCultivos extends Migration
             $table->id()->increments('id');
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->unsignedBigInteger('semilla_id');
-            $table->foreign('semilla_id')->references('id')->on('semillas')->onDelete('cascade');
 
             $table->string('nombre');
             $table->integer('cantidad');

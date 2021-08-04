@@ -26,10 +26,16 @@
                           <input type="hidden" name="txt-semillaid" value="{{$getdata->id}}" >
                           
                           <br>
-                          <div class="m-auto w-auto">
-                              <button type="submit" class="btn btn-success"  >Registrar</button>
+                          <div class="row">
+                              <div class=" col m-auto w-auto">
+                                  <button type="submit" class="btn btn-success"  >Registrar</button>
+                                </form>
+                              </div>
+                              <div class="col">
+                                  <a href="{{route('semillas.index')}}" class="btn btn-danger">Cancelar</a>
+                              </div>
                           </div>
-                      </form>
+                      
                     </div>
                     <div class="col ">
                       <img src="{{asset($getdata->imgname)}}" alt="" class="img-fluid m-auto mt-5 p-auto border border-3 rounded">
