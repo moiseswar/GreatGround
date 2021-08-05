@@ -2,20 +2,20 @@
     <x-slot name="header">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+  
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Tus Cultivos') }}
         </h2>
     </x-slot>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
-
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    
     @if(session()->has('exito'))
     {!! "<script>
        Swal.fire(
@@ -203,8 +203,10 @@
     $(document).ready( function () {
        $('#cultivos').DataTable({
         dom: 'Bfrtip',
+        "paging": true,
+        
         buttons: [
-          'print'
+            'excel', 'csv', 'pdf', 'print', 'copy',
         ],
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
         language: idioma
@@ -390,4 +392,6 @@
     },
     "info": "Mostrando de _START_ a _END_ de _TOTAL_ entradas"
 } 
+</script>
+
 </x-app-layout>
