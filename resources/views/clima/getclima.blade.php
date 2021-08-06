@@ -131,10 +131,14 @@
                         li.innerHTML = markup;
                         card.appendChild(li);
                     }
+                    Result(list);
                 })
                 .catch(err => {
                     console.error(err);
                 });
+        }
+        function Result(data) {
+            console.log(data);
         }
     </script>
 </head>
@@ -148,14 +152,18 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="row">
-                    <div class="col s12 s6">
+                    <div class="col s12">
                         <p id="demo"></p>
+                        <br>
                         <h2 class="font-semibold text-xl text-gray-800 leading-tight">Estes es el cima de hoy y los próximos días</h2>
                         <section class="section">
                             <div class="container">
                                 <ul class="cities"></ul>
                             </div>
                         </section>
+                    </div>
+                    <div class="col s12">
+                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">Estes es el cima de hoy y los próximos días</h2>
                     </div>
                 </div>
             </div>
