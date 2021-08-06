@@ -108,11 +108,12 @@
                     })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(position.coords.latitude, position.coords.longitude);
                     const card = document.querySelector(".section .cities");
                     const {city, list } = data;
                     const dias = {0: "Hoy", 1: "Mañana", 2: "Día siguiente", 3: "Día siguiente"};
+                    var pronostico = [];
                     for (var i = 0; i < list.length; i++) {
+                        pronostico.push(list[i].weather[0]["main"]);
                         const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${list[i].weather[0]["icon"]}.svg`;
                         const li = document.createElement("li");
                         li.classList.add("city");
@@ -131,14 +132,71 @@
                         li.innerHTML = markup;
                         card.appendChild(li);
                     }
-                    Result(list);
+                    Result(pronostico);
                 })
                 .catch(err => {
                     console.error(err);
                 });
         }
         function Result(data) {
-            console.log(data);
+            var cont1 = 0;
+            var cont2 = 0;
+            var cont3 = 0;
+
+            for (let i = 0; i < data.length; i++) {
+                if (data[i] == "Rain") {
+                    cont1++
+                } if(data[i] == "Clouds") {
+                    cont2++
+                }if (data[i] == "Sunny") {
+                    cont3++
+                }
+            }
+            
+            if (cont1 > cont2 && cont1 > cont3) {
+                var pregunta = {
+                    "clima": "nublado",
+                    "dias": cont1
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "{!! ('prolog/prolog.php') !!}",
+                    data: pregunta,
+                    success: function (respuesta) {
+                        $("#result").val(respuesta);
+                    }
+
+                });                
+            } else if (cont2 > cont1 && cont2 > cont3) {
+                var pregunta = {
+                    "clima": "lluvia",
+                    "dias": cont2
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "{!! ('prolog/prolog.php') !!}",
+                    data: pregunta,
+                    success: function (respuesta) {
+                        $("#result").val(respuesta);
+                    }
+
+                });
+            } else{
+                var pregunta = {
+                    "clima": "sol",
+                    "dias": cont3
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "{!! ('prolog/prolog.php') !!}",
+                    data: pregunta,
+                    success: function (respuesta) {
+                        $("#result").val(respuesta);
+                    }
+
+                });
+            }
+
         }
     </script>
 </head>
@@ -163,7 +221,12 @@
                         </section>
                     </div>
                     <div class="col s12">
-                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">Estes es el cima de hoy y los próximos días</h2>
+                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">Recomendaciones sobre la siembra de acuerdo al pronóstico obtenido</h2>
+                        <br>
+                        <div >
+                            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Resultado:</h2>
+                            <textarea id="result" readonly></textarea>
+                        </div>
                     </div>
                 </div>
             </div>

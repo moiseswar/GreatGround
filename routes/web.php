@@ -25,6 +25,10 @@ Route::get('register', function () {
     return view('auth/register');
 })->name('register');
 
+Route::get('prolog', function () {
+    return ('clima/prolog');
+})->name('prolog');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -45,3 +49,4 @@ Route::post('/cultivos/hecho/{id}', 'controladorCultivos@edit')->name('cultivos.
 Route::post('/cultivos/hecho/Actualizando/{id}', 'controladorCultivos@updateComents')->name('cultivos.coment');
 
 Route::get('/clima', 'controladorClima@index')->name('clima.index');
+// Route::get('/prolog.php', 'clima/prolog.php')->name('prolog');
